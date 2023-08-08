@@ -8,7 +8,7 @@ import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error
 
 interface CheckInUseCaseRequest {
   userId: string
-  gymmId: string
+  gymId: string
   userLatitude: number
   userLongitude: number
 }
@@ -25,11 +25,11 @@ export class CheckInUseCase {
 
   async execute({
     userId,
-    gymmId,
+    gymId,
     userLatitude,
     userLongitude,
   }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
-    const gym = await this.gymsRepository.findById(gymmId)
+    const gym = await this.gymsRepository.findById(gymId)
 
     if (!gym) {
       throw new ResourceNotFoundError()
@@ -57,7 +57,7 @@ export class CheckInUseCase {
 
     const checkIn = await this.checkInsRepository.create({
       user_id: userId,
-      gym_id: gymmId,
+      gym_id: gymId,
     })
 
     return {

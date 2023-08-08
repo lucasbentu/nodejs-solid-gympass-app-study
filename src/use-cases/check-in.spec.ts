@@ -33,7 +33,7 @@ describe('Check-in Use Case', () => {
 
   it('should be able to check in', async () => {
     const { checkIn } = await checkInUseCase.execute({
-      gymmId: 'gym-01',
+      gymId: 'gym-01',
       userId: 'user-01',
       userLatitude: -27.4357618,
       userLongitude: -48.4687408,
@@ -45,7 +45,7 @@ describe('Check-in Use Case', () => {
     vi.setSystemTime(new Date(2022, 0, 20, 8, 0, 0))
 
     await checkInUseCase.execute({
-      gymmId: 'gym-01',
+      gymId: 'gym-01',
       userId: 'user-01',
       userLatitude: -27.4357618,
       userLongitude: -48.4687408,
@@ -53,7 +53,7 @@ describe('Check-in Use Case', () => {
 
     await expect(() =>
       checkInUseCase.execute({
-        gymmId: 'gym-01',
+        gymId: 'gym-01',
         userId: 'user-01',
         userLatitude: -27.4357618,
         userLongitude: -48.4687408,
@@ -64,7 +64,7 @@ describe('Check-in Use Case', () => {
     vi.setSystemTime(new Date(2022, 0, 20, 8, 0, 0))
 
     await checkInUseCase.execute({
-      gymmId: 'gym-01',
+      gymId: 'gym-01',
       userId: 'user-01',
       userLatitude: -27.4357618,
       userLongitude: -48.4687408,
@@ -72,7 +72,7 @@ describe('Check-in Use Case', () => {
 
     vi.setSystemTime(new Date(2022, 0, 21, 8, 0, 0))
     const { checkIn } = await checkInUseCase.execute({
-      gymmId: 'gym-01',
+      gymId: 'gym-01',
       userId: 'user-01',
       userLatitude: -27.4357618,
       userLongitude: -48.4687408,
@@ -92,7 +92,7 @@ describe('Check-in Use Case', () => {
 
     await expect(
       checkInUseCase.execute({
-        gymmId: 'gym-02',
+        gymId: 'gym-02',
         userId: 'user-01',
         userLatitude: -27.4357618,
         userLongitude: -48.4687408,
